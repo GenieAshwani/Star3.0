@@ -71,7 +71,7 @@ public class BinaryTree {
         display(root);
     }
 
-    public void display(TreeNode node)
+ /*   public void display(TreeNode node)
     {
         if(node==null) return;
         String s="";
@@ -94,6 +94,57 @@ public class BinaryTree {
         display(node.left);
         //System.out.println(node.val); //while drooping left stack
         display(node.right);
+    }*/
+
+    public void display(TreeNode node)
+    {
+        if(node==null) return;
+        display(node.left);
+        System.out.println(node.val);
+        display(node.right);
+    }
+
+
+    public void search(int data)
+    {
+        search(root,data);
+    }
+    public void search(Node node,int data)
+    {
+        if(node==null) return;
+        search(node.left,data);
+        if(node.val==data)
+        {
+            System.out.println("data found..... "+node.val);
+        }
+        search(node.right,data);
+    }
+
+    public int findMax()
+    {
+        return findMax(root,0);
+    }
+
+
+    private int findMax(Node root,int max)
+    {
+        if(root==null) return Integer.MIN_VALUE;
+        int left=findMax(root.left,max);
+        int right=findMax(root.right,max);
+        return Math.max(root.val,Math.max(left,right));
+    }
+
+    public int findHeight()
+    {
+        return  findHeight(root);
+    }
+
+    private int findHeight(Node root)
+    {
+        if(root==null) return -1;
+        int left=findHeight(root.left);
+        int right=findHeight(root.right);
+        return Math.max(left,right)+1;
     }
 
 

@@ -9,6 +9,6 @@ public class Driver {
 
         BinaryTree bt=new BinaryTree();
 
-        bt.display(root);
+       // bt.display(root);
     }
 }
